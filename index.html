@@ -224,6 +224,39 @@
     </section>
     <!-- Services Card End -->
     <!--? Count Down Start -->
+    <script>
+        // The data/time we want to countdown to
+        var countDownDate = new Date("Oct 29, 2020 16:37:52").getTime();
+    
+        // Run myfunc every second
+        var myfunc = setInterval(function() {
+    
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+            
+        // Calculating the days, hours, minutes and seconds left
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+            
+        // Result is output to the specific element
+        document.getElementById("days").innerHTML = days 
+        document.getElementById("hours").innerHTML = hours  
+        document.getElementById("mins").innerHTML = minutes 
+        document.getElementById("secs").innerHTML = seconds 
+            
+        // Display the message when countdown is over
+        if (timeleft < 0) {
+            clearInterval(myfunc);
+            document.getElementById("days").innerHTML = ""
+            document.getElementById("hours").innerHTML = "" 
+            document.getElementById("mins").innerHTML = ""
+            document.getElementById("secs").innerHTML = ""
+            document.getElementById("end").innerHTML = "TIME UP!!";
+        }
+        }, 1000);
+        </script>
     <div class="count-down-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -233,28 +266,28 @@
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <!-- Counter Up -->
                                 <div class="single-counter text-center">
-                                    <span class="counter">23</span>
+                                    <span id="days" class="counter"></span>
                                     <p>days</p>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-6 col-sm-6">
                                 <!-- Counter Up -->
                                 <div class="single-counter active text-center">
-                                    <span class="counter">15</span>
+                                    <span id="hours" class="counter"></span>
                                     <p>hours</p>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-6 col-sm-6">
                                 <!-- Counter Up -->
                                 <div class="single-counter text-center">
-                                    <span class="counter">46</span>
+                                    <span id="mins" class="counter"></span>
                                     <p>mins</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <!-- Counter Up -->
                                 <div class="single-counter text-center">
-                                    <span class="counter">20</span>
+                                    <span id="secs" class="counter"></span>
                                     <p>secs</p>
                                 </div>
                             </div>
